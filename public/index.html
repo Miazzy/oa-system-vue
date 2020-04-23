@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store,
+            must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>OA System</title>
+    <link rel="icon" href="<%= BASE_URL %>logo.ico" />
+    <link rel="stylesheet" href="<%= BASE_URL %>index.css" />
+    <script src="//cdn.bootcss.com/babel-polyfill/7.6.0/polyfill.js"></script>
+    <script src="//cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+    <script src="//unpkg.com/vue-router@3.1.6/dist/vue-router.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/vuex@3.1.1/dist/vuex.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/axios@0.19.0/dist/axios.min.js"></script>
+    <script src="//cdn.bootcss.com/element-ui/2.13.0/index.js"></script>
+    <script src="//gw.alipayobjects.com/os/lib/antv/g2/3.5.11/dist/g2.min.js"></script>
+    <script src="//gw.alipayobjects.com/os/antv/assets/f2/3.4.2/f2.min.js"></script>
+    <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/superagent/4.1.0/superagent.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/vue-apexcharts@1.5.2/dist/vue-apexcharts.min.js"></script>
+    <script src="//cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
+    <script src="//cdn.bootcss.com/dayjs/1.8.24/dayjs.min.js"></script>
+    <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+    <script src="//unpkg.com/bpmn-js@6.4.2/dist/bpmn-navigated-viewer.development.js"></script>
+    <script src="//cdn.bootcss.com/echarts/4.7.0/echarts.min.js"></script>
+    <script src="//cdn.bootcss.com/spark-md5/3.0.0/spark-md5.min.js"></script>
+    <script src="//cdn.bootcss.com/blueimp-md5/2.13.0/js/md5.min.js"></script>
+    <script src="//cdn.bootcss.com/clipboard.js/2.0.6/clipboard.min.js"></script>
+    <script src="//cdn.bootcss.com/vue-clipboard2/0.3.1/vue-clipboard.min.js"></script>
+    <script src="//cdn.bootcss.com/wangEditor/10.0.13/wangEditor.min.js"></script>
+    <script src="//cdn.bootcss.com/tinymce/5.2.1/tinymce.min.js"></script>
+    <script src="//cdn.bootcss.com/vue-i18n/8.17.0/vue-i18n.min.js"></script>
+    <script src="//cdn.bootcss.com/crypto-js/3.1.9/crypto-js.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/qs/dist/qs.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/@jeecg/antd-onine/dist/OnlineForm.umd.min.js">
+    </script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/@chenfengyuan/vue-qrcode/dist/vue-qrcode.min.js">
+    </script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/vue-photo-preview/dist/vue-photo-preview.js">
+    </script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/viser-vue/umd/viser-vue.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/ant-design-vue/lib/locale-provider/zh_CN.js">
+    </script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/ant-design-vue/dist/antd.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/ant-design-vue/es/grid/Row.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/ant-design-vue/es/grid/Col.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/ant-design-vue/es/input/TextArea.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/mavon-editor/dist/mavon-editor.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/codemirror/lib/codemirror.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/codemirror/mode/javascript/javascript.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/codemirror/mode/css/css.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/codemirror/mode/xml/xml.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/codemirror/mode/clike/clike.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/codemirror/mode/markdown/markdown.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/codemirror/mode/python/python.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/codemirror/mode/r/r.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/codemirror/mode/shell/shell.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/codemirror/mode/sql/sql.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/codemirror/mode/swift/swift.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/vuex/dist/vuex.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/view-design/dist/iview.min.js"></script>
+    <script src="//cdn.bootcss.com/underscore.js/1.9.1/underscore-min.js"></script>
+    <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet" />
+    <link href="//cdn.bootcss.com/wangEditor/10.0.13/wangEditor.min.css" rel="stylesheet" />
+    <link href="//cdn.jsdelivr.net/npm/mavon-editor@2.7.6/dist/css/index.css" />
+    <link href="//cdn.jsdelivr.net/npm/ant-design-vue@1.4.10/dist/antd.min.css" rel="stylesheet" />
+    <link href="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/vue-photo-preview/dist/skin.css" rel="stylesheet" />
+    <link href="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/view-design/dist/styles/iview.css" rel="stylesheet" />
+    <link href="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/codemirror/lib/codemirror.css" rel="stylesheet" />
+    <link href="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/codemirror/theme/panda-syntax.css" rel="stylesheet" />
+    <link href="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/codemirror/addon/hint/show-hint.css" rel="stylesheet" />
+    <link href="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/codemirror/lib/codemirror.css" rel="stylesheet" />
+    <link href="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/mavon-editor/dist/css/index.css" rel="stylesheet" />
+    <link href="//lib.baomitu.com/element-ui/2.12.0/theme-chalk/index.css" rel="stylesheet" crossorigin="anonymous" integrity="sha384-lORadheqlc4cbo9L5It1a5q/AS57s9lXvER3RpFU97WXyO3bZL+siYtgOjLigS3D" />
+
+    <!-- <script src="//cdn.jsdelivr.net/gh/Miazzy/yunwisdoms@v1.0.1/cdn/vue-print-nb-jeecg/index.js"></script> -->
+    <!-- 全局配置 -->
+    <script>
+        //定义配置文件对象
+        window._CONFIG = {};
+        //定义underscore
+        window.underscore = _;
+        //定义underscore
+        window.__ = _;
+        //Vue服务器顶级域名
+        window._CONFIG['topDomain'] = 'shengtai.club';
+        //Vue服务器域名
+        window._CONFIG['domain'] = '//www.' + window._CONFIG['topDomain'];
+        //Vue-REST-API服务器域名
+        window._CONFIG['restAPI'] = '//api.' + window._CONFIG['topDomain'];
+        //API端服务器URL
+        window._CONFIG['domainURL'] = window._CONFIG['domain'] + '/jeecg-boot';
+        //Vue服务器域名,不要删除domian属性，因为有些组件是这样写的，而且位于node_module里面
+        window._CONFIG['domian'] = window._CONFIG['domain'];
+        //API端服务器URL,不要删除domianURL属性，因为有些组件是这样写的，而且位于node_module里面
+        window._CONFIG['domianURL'] = window._CONFIG['domain'] + '/jeecg-boot';
+        //下载服务器域名
+        window._CONFIG['downloadURL'] = window._CONFIG['domain'];
+        //图片服务器域名
+        window._CONFIG['imgDomainURL'] = window._CONFIG['domain'];
+        //KKFileView文档预览URL
+        window._CONFIG['previewURL'] =
+            '//fileview.' + window._CONFIG['topDomain'] + '/onlinePreview?url=';
+        //微软文档预览URL
+        window._CONFIG['officeURL'] =
+            '//view.officeapps.live.com/op/view.aspx?src=';
+        //图片压缩裁剪URL
+        window._CONFIG['thumborURL'] =
+            '//thumbor.' +
+            window._CONFIG['topDomain'] +
+            '/unsafe/fill/100/60/sm/0/plain/';
+        //图片预览URL
+        window._CONFIG['imageURL'] = window._CONFIG['previewURL'];
+        //多媒体预览URL
+        window._CONFIG['videoURL'] = window._CONFIG['previewURL'];
+        //内置文档预览URL
+        window._CONFIG['viewURL'] =
+            window._CONFIG['domainURL'] + '/generic/web/viewer.html?file=';
+        //单独登录URL
+        window._CONFIG['casPrefixUrl'] =
+            '//sso.' + window._CONFIG['topDomain'] + '/cas';
+        //检测URL文件是否存在
+        window._CONFIG['validURL'] =
+            window._CONFIG['domain'] + '/sys/common/url?path=';
+    </script>
+</head>
+
+<body>
+    <!-- built files will be auto injected -->
+    <div id="app">
+        <div id="loader-wrapper">
+            <div id="loader"></div>
+            <div class="load_title">正在加载系统,请耐心等待...</div>
+        </div>
+    </div>
+</body>
+
+</html>
